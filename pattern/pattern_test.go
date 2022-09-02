@@ -336,3 +336,84 @@ func TestLessThanOneHundredWithTwoDecimal(t *testing.T) {
 		t.Fail()
 	}
 }
+
+// 0~9999
+func TestMoreThanZeroAndLessThanTenThousand(t *testing.T) {
+	// 正确的
+	if !MoreThanZeroAndLessThanTenThousand.MatchString("1") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanTenThousand.MatchString("9") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanTenThousand.MatchString("99") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanTenThousand.MatchString("999") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanTenThousand.MatchString("9999") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanTenThousand.MatchString("10") {
+		t.Fail()
+	}
+	// 错误的
+	if MoreThanZeroAndLessThanTenThousand.MatchString("0") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanTenThousand.MatchString("10000") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanTenThousand.MatchString("10.1") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanTenThousand.MatchString("99099") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanTenThousand.MatchString("00") {
+		t.Fail()
+	}
+}
+
+// 0~99999
+func TestMoreThanZeroAndLessThanOneHundredThousand(t *testing.T) {
+	// 正确的
+	if !MoreThanZeroAndLessThanOneHundredThousand.MatchString("1") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanOneHundredThousand.MatchString("9") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanOneHundredThousand.MatchString("99") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanOneHundredThousand.MatchString("999") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanOneHundredThousand.MatchString("9999") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanOneHundredThousand.MatchString("99999") {
+		t.Fail()
+	}
+	if !MoreThanZeroAndLessThanOneHundredThousand.MatchString("10") {
+		t.Fail()
+	}
+	// 错误的
+	if MoreThanZeroAndLessThanOneHundredThousand.MatchString("0") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanOneHundredThousand.MatchString("100000") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanOneHundredThousand.MatchString("10.1") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanOneHundredThousand.MatchString("990999") {
+		t.Fail()
+	}
+	if MoreThanZeroAndLessThanOneHundredThousand.MatchString("00") {
+		t.Fail()
+	}
+}

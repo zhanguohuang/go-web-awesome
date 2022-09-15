@@ -28,4 +28,15 @@ var (
 	MoreThanZeroAndLessThanTenThousand, _ = regexp.Compile(`^[1-9][0-9]{0,3}$`)
 	// 0~99999
 	MoreThanZeroAndLessThanOneHundredThousand, _ = regexp.Compile(`^[1-9][0-9]{0,4}$`)
+
+	// 最多3个整数和1个小数 999.9,0.1,34.,.123
+	threeIntegerAndOneDecimal, _ = regexp.Compile(`^(([0-9]{1,3}(\.[0-9]?)?)|([0-9]?\.[0-9]))$`)
+	// 最多2个整数和2个小数 22.22,0.22
+	twoIntegerAndTwoDecimal, _ = regexp.Compile(`^(([0-9]{1,2}(\.[0-9]{0,2})?)|([0-9]?\.[0-9]{1,2}))$`)
+	// 最多3个整数和2个小数 999.99,0.11,34.,.123
+	threeIntegerAndTwoDecimal, _ = regexp.Compile(`^(([0-9]{1,3}(\.[0-9]{0,2})?)|([0-9]?\.[0-9]{1,2}))$`)
+	// 3个整数
+	threeInteger, _ = regexp.Compile(`^[0-9]{1,3}$`)
+	// 最多1个整数和2个小数 2.22,0.22
+	oneIntegerAndTwoDecimal, _ = regexp.Compile(`^(([0-9](\.[0-9]{0,2})?)|([0-9]?\.[0-9]{1,2}))$`)
 )

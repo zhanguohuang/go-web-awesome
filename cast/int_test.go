@@ -21,3 +21,12 @@ func TestInt64ToString(t *testing.T) {
 		fmt.Printf("origin:%d, Itoa:%s\n", i, is)
 	}
 }
+
+func TestInt64ToFloat(t *testing.T) {
+	iList := []int64{1000, 20, 30, 35, 1234234}
+	for _, i := range iList {
+		var f float64
+		f = float64(i) / 100
+		fmt.Println(f)
+	}
+}

@@ -417,3 +417,267 @@ func TestMoreThanZeroAndLessThanOneHundredThousand(t *testing.T) {
 		t.Fail()
 	}
 }
+
+// 最多3个整数和1个小数 999.9,0.1,34.,.123
+func TestThreeIntegerAndOneDecimal(t *testing.T) {
+	// 正确的
+	if !ThreeIntegerAndOneDecimal.MatchString("0.1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("9") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("0.") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("01.9") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("999") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("999.9") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("1.1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("20.1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("99") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("1.") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString(".1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndOneDecimal.MatchString("0") {
+		t.Fail()
+	}
+	// 错误的
+	if ThreeIntegerAndOneDecimal.MatchString("-1") {
+		t.Fail()
+	}
+	if ThreeIntegerAndOneDecimal.MatchString("1.-") {
+		t.Fail()
+	}
+	if ThreeIntegerAndOneDecimal.MatchString("1000") {
+		t.Fail()
+	}
+	if ThreeIntegerAndOneDecimal.MatchString("9..0") {
+		t.Fail()
+	}
+	if ThreeIntegerAndOneDecimal.MatchString(".") {
+		t.Fail()
+	}
+	if ThreeIntegerAndOneDecimal.MatchString("11.99") {
+		t.Fail()
+	}
+	if ThreeIntegerAndOneDecimal.MatchString("11.09") {
+		t.Fail()
+	}
+}
+
+// 最多2个整数和2个小数 22.22,0.22
+func TestTwoIntegerAndTwoDecimal(t *testing.T) {
+	// 正确的
+	if !TwoIntegerAndTwoDecimal.MatchString("0.1") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("0.11") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("22") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("0.") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("01.9") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("01.90") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("99") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("99.9") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("99.99") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("1.1") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("20.1") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("1") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("1.") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString(".1") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString(".19") {
+		t.Fail()
+	}
+	if !TwoIntegerAndTwoDecimal.MatchString("0") {
+		t.Fail()
+	}
+	// 错误的
+	if TwoIntegerAndTwoDecimal.MatchString("-1") {
+		t.Fail()
+	}
+	if TwoIntegerAndTwoDecimal.MatchString("1.-") {
+		t.Fail()
+	}
+	if TwoIntegerAndTwoDecimal.MatchString("100") {
+		t.Fail()
+	}
+	if TwoIntegerAndTwoDecimal.MatchString("9..0") {
+		t.Fail()
+	}
+	if TwoIntegerAndTwoDecimal.MatchString(".") {
+		t.Fail()
+	}
+	if TwoIntegerAndTwoDecimal.MatchString("11.990") {
+		t.Fail()
+	}
+	if TwoIntegerAndTwoDecimal.MatchString("11.009") {
+		t.Fail()
+	}
+}
+
+// 最多3个整数和2个小数 999.99,0.11,34.,.123
+func TestThreeIntegerAndTwoDecimal(t *testing.T) {
+	// 正确的
+	if !ThreeIntegerAndTwoDecimal.MatchString("0.1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("0.11") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("22") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("0.") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("01.9") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("01.90") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("101.90") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("99") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("99.9") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("99.99") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("1.1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("20.1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("1.") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("11.") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("111.") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString(".1") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString(".19") {
+		t.Fail()
+	}
+	if !ThreeIntegerAndTwoDecimal.MatchString("0") {
+		t.Fail()
+	}
+	// 错误的
+	if ThreeIntegerAndTwoDecimal.MatchString("-1") {
+		t.Fail()
+	}
+	if ThreeIntegerAndTwoDecimal.MatchString("1.-") {
+		t.Fail()
+	}
+	if ThreeIntegerAndTwoDecimal.MatchString("1000") {
+		t.Fail()
+	}
+	if ThreeIntegerAndTwoDecimal.MatchString("9..0") {
+		t.Fail()
+	}
+	if ThreeIntegerAndTwoDecimal.MatchString(".") {
+		t.Fail()
+	}
+	if ThreeIntegerAndTwoDecimal.MatchString("11.990") {
+		t.Fail()
+	}
+	if ThreeIntegerAndTwoDecimal.MatchString("1111") {
+		t.Fail()
+	}
+	if ThreeIntegerAndTwoDecimal.MatchString("11.009") {
+		t.Fail()
+	}
+}
+
+// 3个整数
+func TestThreeInteger(t *testing.T) {
+	// 正确的
+	if !ThreeInteger.MatchString("1") {
+		t.Fail()
+	}
+	if !ThreeInteger.MatchString("2") {
+		t.Fail()
+	}
+	if !ThreeInteger.MatchString("22") {
+		t.Fail()
+	}
+	if !ThreeInteger.MatchString("223") {
+		t.Fail()
+	}
+	if !ThreeInteger.MatchString("0") {
+		t.Fail()
+	}
+	// 错误的
+	if ThreeInteger.MatchString("-1") {
+		t.Fail()
+	}
+	if ThreeInteger.MatchString("1.") {
+		t.Fail()
+	}
+	if ThreeInteger.MatchString("1.0") {
+		t.Fail()
+	}
+	if ThreeInteger.MatchString("1000") {
+		t.Fail()
+	}
+	if ThreeInteger.MatchString(".") {
+		t.Fail()
+	}
+}

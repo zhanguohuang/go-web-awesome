@@ -22,6 +22,16 @@ func TestFloatToString(t *testing.T) {
 		// origin:3.127440, FormatFloatPrec2:3.13
 		fs = strconv.FormatFloat(f, 'f', 2, 64)
 		fmt.Printf("origin:%f, FormatFloatPrec2:%s\n", f, fs)
+
+	}
+
+}
+
+func TestFloatToString2(t *testing.T) {
+	fList := []float64{0., 323.12344, 0.110, 0.1, 0.12, -11.11}
+	for _, f := range fList {
+		s := fmt.Sprintf("%v\n", f)
+		fmt.Println(s)
 	}
 
 }

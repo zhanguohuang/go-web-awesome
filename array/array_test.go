@@ -1,7 +1,10 @@
 package array
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
+	"strconv"
 	"testing"
 )
 
@@ -109,4 +112,67 @@ func TestNotIn(t *testing.T) {
 		m[a] = true
 	}
 
+}
+
+func TestLenMap(t *testing.T) {
+	m := make(map[int64]int64)
+	fmt.Println(len(m))
+	m[1] = 2
+	fmt.Println(len(m))
+	m = nil
+	fmt.Println(len(m))
+}
+
+func TestIntArr(t *testing.T) {
+	var arr []int64
+	fmt.Println(arr == nil)
+	arrJson, err := json.Marshal(arr)
+	fmt.Println(arrJson, err)
+	err = json.Unmarshal(arrJson, &arr)
+	fmt.Println(err)
+
+	arr = nil
+	fmt.Println(arr == nil)
+	arrJson, err = json.Marshal(arr)
+	fmt.Println(arrJson, err)
+}
+
+type ErrorCode int64
+
+type ResponseJson struct {
+	St        ErrorCode   `json:"st"`
+	Msg       string      `json:"msg"`
+	Code      ErrorCode   `json:"code"`
+	Data      interface{} `json:"data"`
+	Page      int64       `json:"page"`
+	Size      int64       `json:"size"`
+	Total     int64       `json:"total"`
+	HasMaster *bool       `json:"has_master,omitempty"`
+}
+
+func TestMap(t *testing.T) {
+	data := make(map[string]interface{})
+	respJson := &ResponseJson{
+		St:        ErrorCode(0),
+		Msg:       "",
+		Code:      ErrorCode(1000811234231),
+		Data:      nil,
+		Page:      0,
+		Size:      0,
+		Total:     0,
+		HasMaster: nil,
+	}
+	respJsonByte, _ := json.Marshal(respJson)
+	decoder := json.NewDecoder(bytes.NewReader(respJsonByte))
+	decoder.UseNumber()
+	_ = decoder.Decode(&data)
+
+	cd, existCd := data["code"]
+	st, existSt := data["st"]
+	// 两个都有值的继续比较
+	codeStr := fmt.Sprintf("%v", cd)
+	stStr := fmt.Sprintf("%v", st)
+	codeInt, pCdErr := strconv.ParseInt(codeStr, 10, 64)
+	stInt, pStErr := strconv.ParseInt(stStr, 10, 64)
+	fmt.Println(cd, existCd, st, existSt, codeStr, stStr, codeInt, pCdErr, stInt, pStErr)
 }
